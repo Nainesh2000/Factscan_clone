@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FactsScan - Food Label & Ingredient Scanner</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <i class="fa-solid fa-barcode logo-icon"></i>
+            <h1>Facts<span>Scan</span></h1>
+        </div>
+        <nav class="nav-links">
+            <a href="#scanner" class="active"><i class="fa-solid fa-camera"></i> Scanner</a>
+            <a href="#database"><i class="fa-solid fa-database"></i> Products</a>
+            <a href="#about"><i class="fa-solid fa-circle-info"></i> About</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+
+        <!-- Hero / Scanner Section -->
+        <section id="scanner" class="scanner-section">
+            <div class="scanner-header">
+                <h2>Scan or Search Food Products</h2>
+                <p>Decode ingredients, check nutritional grades (A-E), and discover healthier swaps instantly.</p>
+            </div>
+
+            <div class="search-box-wrapper">
+                <input type="text" id="searchInput" placeholder="Enter product name or barcode (e.g., Oats, Cola, Chips)...">
+                <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i> Analyze</button>
+            </div>
+
+            <!-- Quick Demo Selectors -->
+            <div class="quick-tags">
+                <span>Try quick scan:</span>
+                <button class="tag-btn" data-product="oats">Whole Grain Oats</button>
+                <button class="tag-btn" data-product="cola">Sugary Cola</button>
+                <button class="tag-btn" data-product="chips">Potato Chips</button>
+                <button class="tag-btn" data-product="yogurt">Greek Yogurt</button>
+            </div>
+
+            <!-- Result Card Container (Hidden by default until scanned) -->
+            <div id="resultContainer" class="result-container hidden">
+                <div class="product-overview-card">
+                    <div class="product-img-box">
+                        <img id="prodImg" src="" alt="Product Image">
+                        <div id="prodGradeBadge" class="grade-badge grade-a">A</div>
+                    </div>
+                    <div class="product-info-box">
+                        <h3 id="prodName">Product Name</h3>
+                        <p id="prodBrand" class="brand-text">Brand Name</p>
+                        <div class="score-bar-wrapper">
+                            <span>Health Score: <strong id="prodScore">92</strong>/100</span>
+                            <div class="progress-bar"><div id="scoreProgress" class="progress-fill"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs for Details -->
+                <div class="details-tabs">
+                    <button class="tab-btn active" data-tab="ingredients">Ingredients & Additives</button>
+                    <button class="tab-btn" data-tab="nutrition">Nutrition Facts</button>
+                    <button class="tab-btn" data-tab="swaps">Healthier Swaps</button>
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="tab-content-container">
+                    <!-- Ingredients Tab -->
+                    <div id="ingredientsTab" class="tab-pane active">
+                        <div class="warning-box" id="warningBox">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div>
+                                <strong>Additive Alert:</strong> <span id="warningText">None detected. Clean ingredients!</span>
+                            </div>
+                        </div>
+                        <h4>Detailed Ingredient Breakdown:</h4>
+                        <ul id="ingredientsList" class="ingredient-list">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+
+                    <!-- Nutrition Tab -->
+                    <div id="nutritionTab" class="tab-pane">
+                        <div class="nutrition-grid" id="nutritionGrid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Swaps Tab -->
+                    <div id="swapsTab" class="tab-pane">
+                        <p class="swap-desc">If this product doesn't meet your health goals, try these cleaner alternatives:</p>
+                        <div id="swapsList" class="swaps-list">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Database Section -->
+        <section id="database" class="database-section">
+            <h2>Explore Product Database</h2>
+            <p>Browse our catalog of analyzed packaged foods and beverages.</p>
+            <div id="catalogGrid" class="catalog-grid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating WhatsApp Support Widget -->
+    <a href="https://wa.me/917859926452?text=Hello%20FactsScan%20Support,%20I%20found%20an%20error%20or%20need%20help%20with:" 
+       class="whatsapp-float" 
+       target="_blank" 
+       title="Report error or chat via WhatsApp">
+        <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
+        <span class="whatsapp-tooltip">Report Error / Support</span>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 FactsScan. All rights reserved. Built for healthy living.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
